@@ -23,6 +23,25 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Bootstrap
+gem 'bootstrap-sass'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
+# Slim
+gem 'slim-rails'
+gem 'html2slim'
+
+# for debug
+group :development, :test do
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # pryを使ったデバッグを実施(Ruby 2.0以降で動作する) next
+  gem 'pry-stack_explorer' # スタックをたどれる
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,7 +54,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+#  gem 'sqlite3'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -45,3 +66,6 @@ group :development do
   gem 'spring'
 end
 
+#group :production do
+#  gem 'pg'
+#end
