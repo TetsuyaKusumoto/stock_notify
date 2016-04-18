@@ -34,9 +34,9 @@ gem 'html2slim'
 
 # for debug
 group :development, :test do
-  gem 'awesome_print'
+  gem 'awesome_print' # rails c でのコマンド時きれいに表示
   gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'binding_of_caller' # consoleを打てるようになる
   gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # pryを使ったデバッグを実施(Ruby 2.0以降で動作する) next
