@@ -1,15 +1,28 @@
 body
-  .boxA
-    .box1
-      | BOX1
-    .box2
-      | BOX2
+  .container-fluid
+    .fx-imm
+      .row
+        .col-sm-4
+          span.label.label-default 円
+          = image_tag "http://www.dai-ichi.co.jp/market/images/5070cftc.gif", class: "img-responsive"
+        .col-sm-4
+          span.label.label-default ユーロ
+          = image_tag "http://www.dai-ichi.co.jp/market/images/5173cftc.gif", class: "img-responsive"
+        .col-sm-4
+          span.label.label-default 豪ドル
+          = image_tag "http://www.dai-ichi.co.jp/market/images/5175cftc.gif", class: "img-responsive"
+      .row
+        .col-sm-4
+          span.label.label-default NZドル
+          = image_tag "http://www.dai-ichi.co.jp/market/images/5178cftc.gif", class: "img-responsive"
+          
+        .col-sm-4
+        .col-sm-4
+    .stock
+      .row
+        .col-sm-12
+          span.label.label-default 騰落レシオ
+          = image_tag "https://www.asset-alive.com/chart.php?cExp=udratio3", class: "img-responsive"
+        
 
-  .box3
-    | BOX3
-
-  .box4
-    | BOX4
-
-  .box5
-    | BOX5
+      

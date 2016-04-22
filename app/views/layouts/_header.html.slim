@@ -1,17 +1,58 @@
-header
-  nav.navbar.navbar-default.navbar-fixed-top
-    .navbar-inner
+header 
+  nav.navbar.navbar-inverse role="navigation" 
+    .container-fluid
+      /! Brand and toggle get grouped for better mobile display
       .navbar-header
-        .button.navbar-toggle.collapsed dta-target="#header-nav" data-toggle="collapse" type="button"
+        button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
           span.sr-only Toggle navigation
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        h1.my
-          a> href="/" test
-      .collapse.navbar-collapse#header-nav
+        a.navbar-brand href="#"  Brand
+      /! Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li.active
+            a href="#"  Link
+          li
+            a href="#"  Link
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#" 
+              | Dropdown
+              span.caret
+            ul.dropdown-menu role="menu" 
+              li
+                a href="#"  Action
+              li
+                a href="#"  Another action
+              li
+                a href="#"  Something else here
+              li.divider
+              li
+                a href="#"  Separated link
+              li.divider
+              li
+                a href="#"  One more separated link
+        form.navbar-form.navbar-left role="search" 
+          .form-group
+            input.form-control placeholder="Search" type="text" 
+          button.btn.btn-default type="submit"  Submit
         ul.nav.navbar-nav.navbar-right
-          li a
-          li b
-          li c
-          li d
+          li
+            a href="#"  Link
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#" 
+              | Dropdown
+              span.caret
+            ul.dropdown-menu role="menu" 
+              li
+                a href="#"  Action
+              li
+                a href="#"  Another action
+              li
+                a href="#"  Something else here
+              li.divider
+              li
+                a href="#"  Separated link
+      /! /.navbar-collapse
+    /! /.container-fluid
