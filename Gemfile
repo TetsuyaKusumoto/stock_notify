@@ -32,6 +32,11 @@ gem 'bootstrap-will_paginate'
 gem 'slim-rails'
 gem 'html2slim'
 
+# Web Access
+gem 'nokogiri'
+gem 'capybara'
+gem 'poltergeist'
+
 # for debug
 group :development, :test do
   gem 'awesome_print' # rails c でのコマンド時きれいに表示
