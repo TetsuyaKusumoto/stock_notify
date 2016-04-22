@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  market: 
+  cap: 1
+  issued: 1
+  dividend_yield: 1.5
+  dividend_one: 1
+  per: 1.5
+  pbr: 1.5
+  eps: 1.5
+  bps: 1.5
+  years_high: 1
+  years_high_date: 2016-04-22
+  years_low: 1
+  years_low_date: 2016-04-22
+
+two:
+  code: MyString
+  name: MyString
+  market: 
+  cap: 1
+  issued: 1
+  dividend_yield: 1.5
+  dividend_one: 1
+  per: 1.5
+  pbr: 1.5
+  eps: 1.5
+  bps: 1.5
+  years_high: 1
+  years_high_date: 2016-04-22
+  years_low: 1
+  years_low_date: 2016-04-22
