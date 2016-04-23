@@ -44,24 +44,26 @@ class Stock < ActiveRecord::Base
       code = code_html.text
       if !code.empty?
         @stock = Stock.find_or_initialize_by(code: code)
-        yahoo_data = JpStock.quote(code: code)
+        if @stock.new_record?
+          yahoo_data = JpStock.quote(code: code)
+          @stock.name = yahoo_data.company_name
+          @stock.market = nil
+          @stock.market_cap = yahoo_data.market_cap
+          @stock.shares_issued = yahoo_data.shares_issued / 100
+          @stock.dividend_yield = yahoo_data.dividend_yield
+          @stock.dividend_one = yahoo_data.dividend_one
+          @stock.per = yahoo_data.per
+          @stock.pbr = yahoo_data.pbr
+          @stock.eps = yahoo_data.eps
+          @stock.bps = yahoo_data.bps
+          @stock.years_high = yahoo_data.years_high
+          @stock.years_high_date = nil
+          @stock.years_low = yahoo_data.years_low
+          @stock.years_low_date = nil
 
-        @stock.name = yahoo_data.company_name
-        @stock.market = nil
-        @stock.market_cap = yahoo_data.market_cap
-        @stock.shares_issued = yahoo_data.shares_issued
-        @stock.dividend_yield = yahoo_data.dividend_yield
-        @stock.dividend_one = yahoo_data.dividend_one
-        @stock.per = yahoo_data.per
-        @stock.pbr = yahoo_data.pbr
-        @stock.eps = yahoo_data.eps
-        @stock.bps = yahoo_data.bps
-        @stock.years_high = yahoo_data.years_high
-        @stock.years_high_date = nil
-        @stock.years_low = yahoo_data.years_low
-        @stock.years_low_date = nil
-
-        p @stock
+          p @stock
+          @stock.save
+        end
       else
         break
       end

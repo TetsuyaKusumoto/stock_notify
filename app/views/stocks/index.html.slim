@@ -1,1 +1,21 @@
-| test
+.panel.panel-default
+  .panel-heading  株式一覧
+  table.table.table-hover.table-striped
+    thead
+      tr
+        th コード
+        th 銘柄名
+        th 市場
+        th 時価総額
+        th 発行株式数
+        th 利回り
+        th 配当
+        th PER
+        th PBR
+        th EPS
+        th BPS
+        th 更新日
+        
+    tbody
+      - @stocks.each do |stock|
+        = render partial: 'stock', locals: { stock: stock }
