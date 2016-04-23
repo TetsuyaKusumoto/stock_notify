@@ -36,6 +36,7 @@ gem 'html2slim'
 gem 'nokogiri'
 gem 'capybara'
 gem 'poltergeist'
+gem 'jpstock'
 
 # for debug
 group :development, :test do

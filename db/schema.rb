@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422121348) do
+ActiveRecord::Schema.define(version: 20160423011906) do
 
   create_table "stocks", force: :cascade do |t|
     t.string   "code"
     t.string   "name"
     t.string   "market"
     t.integer  "market_cap"
-    t.integer  "sahres_issued"
+    t.integer  "shares_issued"
     t.float    "dividend_yield"
     t.integer  "dividend_one"
     t.float    "per"

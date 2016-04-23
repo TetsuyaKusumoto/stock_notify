@@ -17,6 +17,12 @@ class Stock < ActiveRecord::Base
     #自由にUser-Agent設定してください。
     session.driver.headers = { 'User-Agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X)" }
 
+    # トレーダーズウェブ
+    html_traders = open(url_traders) do |f|
+      charset = f.charset # 文字種別を取得
+      f.read # htmlを読み込んで変数htmlに渡す
+    end
+
 
     # 1日一回定時にプログラムが回る
     # 四季報オンラインを巡回する
@@ -24,12 +30,6 @@ class Stock < ActiveRecord::Base
     session.visit "http://shikiho.jp/tk/ranking/price/highlow/high/y10"
     # htmlをパース(解析)してコードを取り出す
     page = Nokogiri::HTML.parse(session.html)
-
-    # トレーダーズウェブ
-    html_traders = open(url_traders) do |f|
-      charset = f.charset # 文字種別を取得
-      f.read # htmlを読み込んで変数htmlに渡す
-    end
 
     # htmlをパース(解析)してオブジェクトを生成
     page_traders = Nokogiri::HTML.parse(html_traders, nil, 'shift-jis')
@@ -42,6 +42,33 @@ class Stock < ActiveRecord::Base
       code_html = page.xpath("//*[@id='rank_code_#{i}']")
       p code_html.text
       code = code_html.text
+      if !code.empty?
+        @stock = Stock.find_or_initialize_by(code: code)
+        yahoo_data = JpStock.quote(code: code)
+
+        @stock.name = yahoo_data.company_name
+        @stock.market = nil
+        @stock.market_cap = yahoo_data.market_cap
+        @stock.shares_issued = yahoo_data.shares_issued
+        @stock.dividend_yield = yahoo_data.dividend_yield
+        @stock.dividend_one = yahoo_data.dividend_one
+        @stock.per = yahoo_data.per
+        @stock.pbr = yahoo_data.pbr
+        @stock.eps = yahoo_data.eps
+        @stock.bps = yahoo_data.bps
+        @stock.years_high = yahoo_data.years_high
+        @stock.years_high_date = nil
+        @stock.years_low = yahoo_data.years_low
+        @stock.years_low_date = nil
+
+        p @stock
+      else
+        break
+      end
+
+        # yahooでスクレイピングして、保存
+        # メール通知の内容を
+
       # トレーダースWebの更新日が今年の1/4
       html_traders = open(url_traders) do |f|
         charset = f.charset # 文字種別を取得
@@ -51,4 +78,7 @@ class Stock < ActiveRecord::Base
       # PERが60倍未満
     end
   end
+  # CSVを取り出しておいて、年初来高値が2016/1/4
+  # DBへ新規かアップデート
+  # メール通知
 end

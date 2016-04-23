@@ -83,6 +83,8 @@ GEM
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jpstock (0.6.7)
+      nokogiri
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -217,6 +219,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   html2slim
   jbuilder (~> 2.0)
+  jpstock
   jquery-rails
   nokogiri
   poltergeist
