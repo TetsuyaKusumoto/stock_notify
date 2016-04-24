@@ -39,6 +39,7 @@ gem 'capybara'
 gem 'poltergeist'
 gem 'jpstock'
 
+
 # for debug
 group :development, :test do
   gem 'awesome_print' # rails c でのコマンド時きれいに表示
@@ -48,6 +49,7 @@ group :development, :test do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # pryを使ったデバッグを実施(Ruby 2.0以降で動作する) next
   gem 'pry-stack_explorer' # スタックをたどれる
+  gem 'dotenv-rails'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
