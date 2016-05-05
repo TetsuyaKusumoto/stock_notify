@@ -25,10 +25,10 @@ Rails.application.configure do
     :port => '587',
     :domain => 'smtp.gmail.com',
     :authentication => 'login',
-    :user_name => ENV['MAILADDRESS'],
+    user_name: ENV['MAILADDRESS'],
 #    :user_name => Rails.application.secrets.mail_address,
 #    :password => Rails.application.secrets.mail_pass
-    :password =>  ENV['MAILPASS']
+    password:  ENV['MAILPASS']
 }
 
   # Print deprecation notices to the Rails logger.
