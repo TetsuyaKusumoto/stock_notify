@@ -33,7 +33,7 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
+  config.i18n.default_locale = :ja
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
