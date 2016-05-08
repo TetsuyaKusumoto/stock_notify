@@ -83,4 +83,15 @@ class Stock < ActiveRecord::Base
   # CSVを取り出しておいて、年初来高値が2016/1/4
   # DBへ新規かアップデート
   # メール通知
+
+  def exist?(code)
+    Stock.find_by(code: code)
+  end
+  def updated_before_oneyear?
+    # 時刻を比較し1年以上前かどうか
+    updated_at < DateTime.now.prev_year
+  end
+
+
+
 end

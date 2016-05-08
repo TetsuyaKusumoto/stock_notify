@@ -40,6 +40,9 @@ gem 'poltergeist'
 gem 'jpstock'
 gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
 
+# crontab管理
+gem 'whenever'
+
 # for debug
 group :development, :test do
   gem 'awesome_print' # rails c でのコマンド時きれいに表示
