@@ -44,7 +44,8 @@ class StockData
       code = code_html.text
       if !code.empty?
         @stock = Stock.find_or_initialize_by(code: code)
-        if @stock.updated_before_oneyear?
+        #pry.binding
+        if @stock.updated_at == nil || @stock.updated_before_oneyear?
           yahoo_data = JpStock.quote(code: code)
           @stock.name = yahoo_data.company_name
           @stock.market = nil
