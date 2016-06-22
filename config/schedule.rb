@@ -21,7 +21,7 @@
 set :output, 'log/cron.log'
 set :environment, :development
 
-every :hour do
+every 1.day, :at => '6:00 am' do
   runner 'StockData.get_stock_data'
   runner 'StockData.notify_shintakane'
 end
